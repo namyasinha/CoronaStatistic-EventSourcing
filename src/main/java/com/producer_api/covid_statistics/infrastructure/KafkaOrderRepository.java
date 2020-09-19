@@ -20,7 +20,7 @@ public class KafkaOrderRepository {
     }
 
 
-    @KafkaListener(groupId="slot",topics = "orders")
+    @KafkaListener(groupId="statistic",topics = "coronaStatistics")
     public void listen(String event) throws IOException {
         DomainEvent domainEvent = this.objectMapper.readValue(event, DomainEvent.class);
         if (!(domainEvent instanceof DisplayDomainEvent)) {
